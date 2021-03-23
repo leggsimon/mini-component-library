@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
+const SIZES = {
+	small: {
+		'--height': '8px',
+	},
+	medium: {
+		'--height': '12px',
+	},
+};
 const ProgressBar = ({ value, size }) => {
 	return (
 		<Wrapper
@@ -12,6 +20,7 @@ const ProgressBar = ({ value, size }) => {
 			aria-valuemin="0"
 			aria-valuemax="100"
 			aria-valuetext={`${value}% Completed`}
+			style={SIZES[size]}
 		>
 			<Bar value={value} />
 		</Wrapper>
@@ -19,7 +28,7 @@ const ProgressBar = ({ value, size }) => {
 };
 
 const Wrapper = styled.div`
-	height: 8px;
+	height: var(--height);
 	border-radius: 4px;
 	width: 370px;
 	background-color: ${COLORS.transparentGray15};
